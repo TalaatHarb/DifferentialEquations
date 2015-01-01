@@ -13,7 +13,7 @@ def forward_euler():
     for step in range(num_steps):
         t[step + 1] = t[step] + h
         x[step + 1] = x[step] + h * v[step]
-        v[step + 1] = v[step] + h * g
+        v[step + 1] = v[step] - h * g
     
     return t, x, v
     
