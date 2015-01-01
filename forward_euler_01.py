@@ -11,9 +11,9 @@ def forward_euler():
     v = numpy.zeros(num_steps + 1)
     
     for step in range(num_steps):
-        t[step + 1] = #
-        x[step + 1] = #
-        v[step + 1] = #
+        t[step + 1] = t[step] + h
+        x[step + 1] = x[step] + h * v[step]
+        v[step + 1] = v[step] + h * g
     
     return t, x, v
     
