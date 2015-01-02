@@ -42,7 +42,7 @@ def heun_error(num_steps):
     return error
         
 for num_steps in [200, 500, 1000, 2000, 5000, 10000]:
-    error = calculate_error(num_steps)
+    error = heun_error(num_steps)
 
 matplotlib.pyplot.xlim(xmin = 0.0)
 matplotlib.pyplot.ylim(ymin = 0.0)
