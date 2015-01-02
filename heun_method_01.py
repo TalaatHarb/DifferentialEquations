@@ -39,10 +39,10 @@ def heun_error(num_steps):
     error = numpy.linalg.norm(x[-1] - x[0])
     matplotlib.pyplot.scatter(h,error)
     
-    return error
+    return x, v, error
         
 for num_steps in [200, 500, 1000, 2000, 5000, 10000]:
-    error = heun_error(num_steps)
+    x, v, error = heun_error(num_steps)
 
 matplotlib.pyplot.xlim(xmin = 0.0)
 matplotlib.pyplot.ylim(ymin = 0.0)
