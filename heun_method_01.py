@@ -30,11 +30,12 @@ def heun_error(num_steps):
     v[0, 1] = speed
     
     for step in range(num_steps):
+        initial_acceleration = acceleration(x[step])
         xe = x[step] + h * v[step]
         ve = v[step] + h * acceleration(x[step])
         
         x[step + 1] = x[step] + 0.5 * h * (v[step] + ve)
-        v[step + 1] = v[step] + 0.5 * h * (acceleration(x[step]) + acceleration(xe))
+        v[step + 1] = v[step] + 0.5 * h * (initial_acceleration + acceleration(xe))
         
     error = numpy.linalg.norm(x[-1] - x[0])
     matplotlib.pyplot.scatter(h,error)
