@@ -2,10 +2,12 @@ import math
 import numpy
 import matplotlib.pyplot
 
-total_time = 24.0 * 60 * 60
+total_time = 3.5 * 60 * 60
 
 earth_mass = 5.97e24
 gravitational_constant = 6.67e-11
+
+tolerance = 1e5
 
 radius = (gravitational_constant * earth_mass * total_time **2. / 4. / math.pi ** 2.0) **(1.0/3.0)
 speed = 2.0 * math.pi * radius / total_time
@@ -17,6 +19,8 @@ def acceleration(spaceship_position):
     return gravitational_constant * earth_mass / numpy.linalg.norm(vector_to_earth)**3 * vector_to_earth
 
 def orbit():
+    global tolerance
+
     x = numpy.zeros(2)
     v = numpy.zeros(2)
     
@@ -31,7 +35,6 @@ def orbit():
     h = 100
     h_new = h
     
-    tolerance = 5e5
     
     while current_time < total_time :
         acceleration0 = acceleration(x)
