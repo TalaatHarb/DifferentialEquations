@@ -32,7 +32,7 @@ def heun_error(num_steps):
     for step in range(num_steps):
         initial_acceleration = acceleration(x[step])
         xe = x[step] + h * v[step]
-        ve = v[step] + h * acceleration(x[step])
+        ve = v[step] + h * initial_acceleration
         
         x[step + 1] = x[step] + 0.5 * h * (v[step] + ve)
         v[step + 1] = v[step] + 0.5 * h * (initial_acceleration + acceleration(xe))
